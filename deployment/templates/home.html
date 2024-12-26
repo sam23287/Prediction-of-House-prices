@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Input Form for Prediction</title>
+</head>
+<body>
+    <h1>Prediction Form</h1>
+    <form action="/predict" method="post">
+
+        <!-- Categorical Features -->
+        <h2>Categorical Features</h2>
+
+        <label for="MSZoning">MSZoning:</label>
+        <select id="MSZoning" name="MSZoning" required>
+            <option value="RL">RL</option>
+            <option value="RM">RM</option>
+            <option value="C (all)">C (all)</option>
+            <option value="FV">FV</option>
+            <option value="RH">RH</option>
+        </select><br><br>
+
+        <label for="Street">Street:</label>
+        <select id="Street" name="Street" required>
+            <option value="Pave">Pave</option>
+            <option value="Grvl">Grvl</option>
+        </select><br><br>
+
+        <label for="Alley">Alley:</label>
+        <select id="Alley" name="Alley">
+            <option value="Grvl">Grvl</option>
+            <option value="Pave">Pave</option>
+        </select><br><br>
+
+        <label for="LotShape">LotShape:</label>
+        <select id="LotShape" name="LotShape" required>
+            <option value="Reg">Reg</option>
+            <option value="IR1">IR1</option>
+            <option value="IR2">IR2</option>
+            <option value="IR3">IR3</option>
+        </select><br><br>
+
+        <!-- LandContour -->
+        <label for="LandContour">LandContour:</label>
+        <select id="LandContour" name="LandContour" required>
+            <option value="Lvl">Lvl</option>
+            <option value="Bnk">Bnk</option>
+            <option value="Low">Low</option>
+            <option value="HLS">HLS</option>
+        </select><br><br>
+
+        <!-- Utilities -->
+        <label for="Utilities">Utilities:</label>
+        <select id="Utilities" name="Utilities" required>
+            <option value="AllPub">AllPub</option>
+            <option value="NoSeWa">NoSeWa</option>
+        </select><br><br>
+
+        <!-- LotConfig -->
+        <label for="LotConfig">LotConfig:</label>
+        <select id="LotConfig" name="LotConfig" required>
+            <option value="Inside">Inside</option>
+            <option value="FR2">FR2</option>
+            <option value="Corner">Corner</option>
+            <option value="CulDSac">CulDSac</option>
+            <option value="FR3">FR3</option>
+        </select><br><br>
+
+        <!-- LandSlope -->
+        <label for="LandSlope">LandSlope:</label>
+        <select id="LandSlope" name="LandSlope" required>
+            <option value="Gtl">Gtl</option>
+            <option value="Mod">Mod</option>
+            <option value="Sev">Sev</option>
+        </select><br><br>
+
+        <!-- Neighborhood -->
+        <label for="Neighborhood">Neighborhood:</label>
+        <select id="Neighborhood" name="Neighborhood" required>
+            <option value="CollgCr">CollgCr</option>
+            <option value="Veenker">Veenker</option>
+            <option value="Crawfor">Crawfor</option>
+            <option value="NoRidge">NoRidge</option>
+            <option value="Mitchel">Mitchel</option>
+            <option value="Somerst">Somerst</option>
+            <option value="NWAmes">NWAmes</option>
+            <option value="OldTown">OldTown</option>
+            <option value="BrkSide">BrkSide</option>
+            <option value="Sawyer">Sawyer</option>
+            <option value="NridgHt">NridgHt</option>
+            <option value="NAmes">NAmes</option>
+            <option value="SawyerW">SawyerW</option>
+            <option value="IDOTRR">IDOTRR</option>
+            <option value="MeadowV">MeadowV</option>
+            <option value="Edwards">Edwards</option>
+            <option value="Timber">Timber</option>
+            <option value="Gilbert">Gilbert</option>
+            <option value="StoneBr">StoneBr</option>
+            <option value="ClearCr">ClearCr</option>
+            <option value="NPkVill">NPkVill</option>
+            <option value="Blmngtn">Blmngtn</option>
+            <option value="BrDale">BrDale</option>
+            <option value="SWISU">SWISU</option>
+            <option value="Blueste">Blueste</option>
+        </select><br><br>
+
+        <!-- Condition1 -->
+        <label for="Condition1">Condition1:</label>
+        <select id="Condition1" name="Condition1" required>
+            <option value="Norm">Norm</option>
+            <option value="Feedr">Feedr</option>
+            <option value="PosN">PosN</option>
+            <option value="Artery">Artery</option>
+            <option value="RRAe">RRAe</option>
+            <option value="RRNn">RRNn</option>
+            <option value="RRAn">RRAn</option>
+            <option value="PosA">PosA</option>
+            <option value="RRNe">RRNe</option>
+        </select><br><br>
+
+        <!-- Condition2 -->
+        <label for="Condition2">Condition2:</label>
+        <select id="Condition2" name="Condition2" required>
+            <option value="Norm">Norm</option>
+            <option value="Artery">Artery</option>
+            <option value="RRNn">RRNn</option>
+            <option value="Feedr">Feedr</option>
+            <option value="PosN">PosN</option>
+            <option value="PosA">PosA</option>
+            <option value="RRAn">RRAn</option>
+            <option value="RRAe">RRAe</option>
+        </select><br><br>
+
+        <label for="BldgType">BldgType:</label>
+        <select id="BldgType" name="BldgType" required>
+            <option value="1Fam">1Fam</option>
+            <option value="2fmCon">2fmCon</option>
+            <option value="Duplex">Duplex</option>
+            <option value="TwnhsE">TwnhsE</option>
+            <option value="Twnhs">Twnhs</option>
+        </select><br><br>
+
+        <!-- HouseStyle -->
+        <label for="HouseStyle">HouseStyle:</label>
+        <select id="HouseStyle" name="HouseStyle" required>
+            <option value="2Story">2Story</option>
+            <option value="1Story">1Story</option>
+            <option value="1.5Fin">1.5Fin</option>
+            <option value="1.5Unf">1.5Unf</option>
+            <option value="SFoyer">SFoyer</option>
+            <option value="SLvl">SLvl</option>
+            <option value="2.5Unf">2.5Unf</option>
+            <option value="2.5Fin">2.5Fin</option>
+        </select><br><br>
+
+        <!-- RoofStyle -->
+        <label for="RoofStyle">RoofStyle:</label>
+        <select id="RoofStyle" name="RoofStyle" required>
+            <option value="Gable">Gable</option>
+            <option value="Hip">Hip</option>
+            <option value="Gambrel">Gambrel</option>
+            <option value="Mansard">Mansard</option>
+            <option value="Flat">Flat</option>
+            <option value="Shed">Shed</option>
+        </select><br><br>
+
+        <!-- RoofMatl -->
+        <label for="RoofMatl">RoofMatl:</label>
+        <select id="RoofMatl" name="RoofMatl" required>
+            <option value="CompShg">CompShg</option>
+            <option value="WdShngl">WdShngl</option>
+            <option value="Metal">Metal</option>
+            <option value="WdShake">WdShake</option>
+            <option value="Membran">Membran</option>
+            <option value="Tar&Grv">Tar&Grv</option>
+            <option value="Roll">Roll</option>
+            <option value="ClyTile">ClyTile</option>
+        </select><br><br>
+
+        <!-- Exterior1st -->
+        <label for="Exterior1st">Exterior1st:</label>
+        <select id="Exterior1st" name="Exterior1st" required>
+            <option value="VinylSd">VinylSd</option>
+            <option value="MetalSd">MetalSd</option>
+            <option value="Wd Sdng">Wd Sdng</option>
+            <option value="HdBoard">HdBoard</option>
+            <option value="BrkFace">BrkFace</option>
+            <option value="WdShing">WdShing</option>
+            <option value="CemntBd">CemntBd</option>
+            <option value="Plywood">Plywood</option>
+            <option value="AsbShng">AsbShng</option>
+            <option value="Stucco">Stucco</option>
+            <option value="BrkComm">BrkComm</option>
+            <option value="AsphShn">AsphShn</option>
+            <option value="Stone">Stone</option>
+            <option value="ImStucc">ImStucc</option>
+            <option value="CBlock">CBlock</option>
+        </select><br><br>
+
+        <!-- Exterior2nd -->
+        <label for="Exterior2nd">Exterior2nd:</label>
+        <select id="Exterior2nd" name="Exterior2nd" required>
+            <option value="VinylSd">VinylSd</option>
+            <option value="MetalSd">MetalSd</option>
+            <option value="Wd Shng">Wd Shng</option>
+            <option value="HdBoard">HdBoard</option>
+            <option value="Plywood">Plywood</option>
+            <option value="Wd Sdng">Wd Sdng</option>
+            <option value="CmentBd">CmentBd</option>
+            <option value="BrkFace">BrkFace</option>
+            <option value="Stucco">Stucco</option>
+            <option value="AsbShng">AsbShng</option>
+            <option value="Brk Cmn">Brk Cmn</option>
+            <option value="ImStucc">ImStucc</option>
+            <option value="AsphShn">AsphShn</option>
+            <option value="Stone">Stone</option>
+            <option value="Other">Other</option>
+            <option value="CBlock">CBlock</option>
+        </select><br><br>
+
+        <!-- MasVnrType -->
+        <label for="MasVnrType">MasVnrType:</label>
+        <select id="MasVnrType" name="MasVnrType" required>
+            <option value="BrkFace">BrkFace</option>
+            <option value="Stone">Stone</option>
+            <option value="BrkCmn">BrkCmn</option>
+        </select><br><br>
+
+        <!-- ExterQual -->
+        <label for="ExterQual">ExterQual:</label>
+        <select id="ExterQual" name="ExterQual" required>
+            <option value="Gd">Gd</option>
+            <option value="TA">TA</option>
+            <option value="Ex">Ex</option>
+            <option value="Fa">Fa</option>
+        </select><br><br>
+
+        <!-- ExterCond -->
+        <label for="ExterCond">ExterCond:</label>
+        <select id="ExterCond" name="ExterCond" required>
+            <option value="TA">TA</option>
+            <option value="Gd">Gd</option>
+            <option value="Fa">Fa</option>
+            <option value="Po">Po</option>
+            <option value="Ex">Ex</option>
+        </select><br><br>
+
+        <!-- Foundation -->
+        <label for="Foundation">Foundation:</label>
+        <select id="Foundation" name="Foundation" required>
+            <option value="PConc">PConc</option>
+            <option value="CBlock">CBlock</option>
+            <option value="BrkTil">BrkTil</option>
+            <option value="Wood">Wood</option>
+            <option value="Slab">Slab</option>
+            <option value="Stone">Stone</option>
+        </select><br><br>
+
+        <!-- BsmtQual -->
+        <label for="BsmtQual">BsmtQual:</label>
+        <select id="BsmtQual" name="BsmtQual" required>
+            <option value="Gd">Gd</option>
+            <option value="TA">TA</option>
+            <option value="Ex">Ex</option>
+            <option value="Fa">Fa</option>
+        </select><br><br>
+
+        <!-- BsmtCond -->
+        <label for="BsmtCond">BsmtCond:</label>
+        <select id="BsmtCond" name="BsmtCond" required>
+            <option value="TA">TA</option>
+            <option value="Gd">Gd</option>
+            <option value="Fa">Fa</option>
+            <option value="Po">Po</option>
+        </select><br><br>
+
+        <!-- BsmtExposure -->
+        <label for="BsmtExposure">BsmtExposure:</label>
+        <select id="BsmtExposure" name="BsmtExposure" required>
+            <option value="No">No</option>
+            <option value="Gd">Gd</option>
+            <option value="Mn">Mn</option>
+            <option value="Av">Av</option>
+        </select><br><br>
+
+        <label for="BsmtFinType1">BsmtFinType1:</label>
+        <select id="BsmtFinType1" name="BsmtFinType1">
+            <option value="GLQ">GLQ</option>
+            <option value="ALQ">ALQ</option>
+            <option value="Unf">Unf</option>
+            <option value="Rec">Rec</option>
+            <option value="BLQ">BLQ</option>
+            <option value="LwQ">LwQ</option>
+        </select><br><br>
+
+        <!-- BsmtFinType2 -->
+        <label for="BsmtFinType2">BsmtFinType2:</label>
+        <select id="BsmtFinType2" name="BsmtFinType2">
+            <option value="Unf">Unf</option>
+            <option value="BLQ">BLQ</option>
+            <option value="ALQ">ALQ</option>
+            <option value="Rec">Rec</option>
+            <option value="LwQ">LwQ</option>
+            <option value="GLQ">GLQ</option>
+        </select><br><br>
+
+        <!-- Heating -->
+        <label for="Heating">Heating:</label>
+        <select id="Heating" name="Heating">
+            <option value="GasA">GasA</option>
+            <option value="GasW">GasW</option>
+            <option value="Grav">Grav</option>
+            <option value="Wall">Wall</option>
+            <option value="OthW">OthW</option>
+            <option value="Floor">Floor</option>
+        </select><br><br>
+
+        <!-- HeatingQC -->
+        <label for="HeatingQC">HeatingQC:</label>
+        <select id="HeatingQC" name="HeatingQC">
+            <option value="Ex">Ex</option>
+            <option value="Gd">Gd</option>
+            <option value="TA">TA</option>
+            <option value="Fa">Fa</option>
+            <option value="Po">Po</option>
+        </select><br><br>
+
+        <!-- CentralAir -->
+        <label for="CentralAir">CentralAir:</label>
+        <select id="CentralAir" name="CentralAir">
+            <option value="Y">Y</option>
+            <option value="N">N</option>
+        </select><br><br>
+
+        <!-- Electrical -->
+        <label for="Electrical">Electrical:</label>
+        <select id="Electrical" name="Electrical">
+            <option value="SBrkr">SBrkr</option>
+            <option value="FuseF">FuseF</option>
+            <option value="FuseA">FuseA</option>
+            <option value="FuseP">FuseP</option>
+            <option value="Mix">Mix</option>
+        </select><br><br>
+
+        <!-- KitchenQual -->
+        <label for="KitchenQual">KitchenQual:</label>
+        <select id="KitchenQual" name="KitchenQual">
+            <option value="Gd">Gd</option>
+            <option value="TA">TA</option>
+            <option value="Ex">Ex</option>
+            <option value="Fa">Fa</option>
+        </select><br><br>
+
+        <!-- Functional -->
+        <label for="Functional">Functional:</label>
+        <select id="Functional" name="Functional">
+            <option value="Typ">Typ</option>
+            <option value="Min1">Min1</option>
+            <option value="Maj1">Maj1</option>
+            <option value="Min2">Min2</option>
+            <option value="Mod">Mod</option>
+            <option value="Maj2">Maj2</option>
+            <option value="Sev">Sev</option>
+        </select><br><br>
+
+        <!-- FireplaceQu -->
+        <label for="FireplaceQu">FireplaceQu:</label>
+        <select id="FireplaceQu" name="FireplaceQu">
+            <option value="Gd">Gd</option>
+            <option value="TA">TA</option>
+            <option value="Fa">Fa</option>
+            <option value="Ex">Ex</option>
+            <option value="Po">Po</option>
+        </select><br><br>
+
+        <!-- GarageType -->
+        <label for="GarageType">GarageType:</label>
+        <select id="GarageType" name="GarageType">
+            <option value="Attchd">Attchd</option>
+            <option value="Detchd">Detchd</option>
+            <option value="BuiltIn">BuiltIn</option>
+            <option value="CarPort">CarPort</option>
+            <option value="Basment">Basment</option>
+            <option value="2Types">2Types</option>
+        </select><br><br>
+
+        <!-- GarageFinish -->
+        <label for="GarageFinish">GarageFinish:</label>
+        <select id="GarageFinish" name="GarageFinish">
+            <option value="RFn">RFn</option>
+            <option value="Unf">Unf</option>
+            <option value="Fin">Fin</option>
+        </select><br><br>
+
+        <!-- GarageQual -->
+        <label for="GarageQual">GarageQual:</label>
+        <select id="GarageQual" name="GarageQual">
+            <option value="TA">TA</option>
+            <option value="Fa">Fa</option>
+            <option value="Gd">Gd</option>
+            <option value="Ex">Ex</option>
+            <option value="Po">Po</option>
+        </select><br><br>
+
+        <!-- GarageCond -->
+        <label for="garageCond">Garage Condition:</label>
+        <select id="garageCond" name="garageCond">
+            <option value="TA">TA</option>
+            <option value="Fa">Fa</option>
+            <option value="Gd">Gd</option>
+            <option value="Po">Po</option>
+            <option value="Ex">Ex</option>
+        </select><br><br>
+
+        <!-- PavedDrive -->
+        <label for="pavedDrive">Paved Drive:</label>
+        <select id="pavedDrive" name="pavedDrive">
+            <option value="Y">Y</option>
+            <option value="N">N</option>
+            <option value="P">P</option>
+        </select><br><br>
+
+        <!-- PoolQC -->
+        <label for="poolQC">Pool Quality:</label>
+        <select id="poolQC" name="poolQC">
+            <option value="Gd">Gd</option>
+            <option value="Ex">Ex</option>
+            <option value="Fa">Fa</option>
+        </select><br><br>
+
+        <!-- Fence -->
+        <label for="fence">Fence:</label>
+        <select id="fence" name="fence">
+            <option value="MnPrv">MnPrv</option>
+            <option value="GdWo">GdWo</option>
+            <option value="GdPrv">GdPrv</option>
+            <option value="MnWw">MnWw</option>
+        </select><br><br>
+
+        <!-- MiscFeature -->
+        <label for="miscFeature">Miscellaneous Feature:</label>
+        <select id="miscFeature" name="miscFeature">
+            <option value="Shed">Shed</option>
+            <option value="Gar2">Gar2</option>
+            <option value="Othr">Othr</option>
+            <option value="TenC">TenC</option>
+        </select><br><br>
+
+        <!-- SaleType -->
+        <label for="saleType">Sale Type:</label>
+        <select id="saleType" name="saleType">
+            <option value="WD">WD</option>
+            <option value="New">New</option>
+            <option value="COD">COD</option>
+            <option value="ConLD">ConLD</option>
+            <option value="ConLI">ConLI</option>
+            <option value="CWD">CWD</option>
+            <option value="ConLw">ConLw</option>
+            <option value="Con">Con</option>
+            <option value="Oth">Oth</option>
+        </select><br><br>
+
+        <!-- SaleCondition -->
+        <label for="saleCondition">Sale Condition:</label>
+        <select id="saleCondition" name="saleCondition">
+            <option value="Normal">Normal</option>
+            <option value="Abnorml">Abnorml</option>
+            <option value="Partial">Partial</option>
+            <option value="AdjLand">AdjLand</option>
+            <option value="Alloca">Alloca</option>
+            <option value="Family">Family</option>
+        </select><br><br>
+
+        <!-- Numerical Features --> 
+        <h2>Numerical Features</h2>
+
+        <label for="MSSubClass">MSSubClass:</label>
+        <input type="number" id="MSSubClass" name="MSSubClass" required><br><br>
+
+        <label for="LotFrontage">LotFrontage:</label>
+        <input type="number" id="LotFrontage" name="LotFrontage"><br><br>
+
+        <label for="LotArea">LotArea:</label>
+        <input type="number" id="LotArea" name="LotArea" required><br><br>
+
+        <label for="OverallQual">OverallQual:</label>
+        <input type="number" id="OverallQual" name="OverallQual" required><br><br>
+
+        <label for="OverallCond">OverallCond:</label>
+        <input type="number" id="OverallCond" name="OverallCond"><br><br>
+
+        <label for="YearBuilt">YearBuilt:</label>
+        <input type="number" id="YearBuilt" name="YearBuilt" required><br><br>
+
+        <label for="YearRemodAdd">YearRemodAdd:</label>
+        <input type="number" id="YearRemodAdd" name="YearRemodAdd" required><br><br>
+
+        <label for="MasVnrArea">MasVnrArea:</label>
+        <input type="number" id="MasVnrArea" name="MasVnrArea"><br><br>
+
+        <label for="BsmtFinSF1">BsmtFinSF1:</label>
+        <input type="number" id="BsmtFinSF1" name="BsmtFinSF1"><br><br>
+
+        <label for="BsmtFinSF2">BsmtFinSF2:</label>
+        <input type="number" id="BsmtFinSF2" name="BsmtFinSF2"><br><br>
+
+        <label for="BsmtUnfSF">BsmtUnfSF:</label>
+        <input type="number" id="BsmtUnfSF" name="BsmtUnfSF"><br><br>
+
+        <label for="TotalBsmtSF">TotalBsmtSF:</label>
+        <input type="number" id="TotalBsmtSF" name="TotalBsmtSF" required><br><br>
+
+        <label for="1stFlrSF">1stFlrSF:</label>
+        <input type="number" id="1stFlrSF" name="1stFlrSF" required><br><br>
+
+        <label for="2ndFlrSF">2ndFlrSF:</label>
+        <input type="number" id="2ndFlrSF" name="2ndFlrSF" required><br><br>
+
+        <label for="LowQualFinSF">LowQualFinSF:</label>
+        <input type="number" id="LowQualFinSF" name="LowQualFinSF"><br><br>
+
+        <label for="GrLivArea">GrLivArea:</label>
+        <input type="number" id="GrLivArea" name="GrLivArea" required><br><br>
+
+        <label for="BsmtFullBath">BsmtFullBath:</label>
+        <input type="number" id="BsmtFullBath" name="BsmtFullBath"><br><br>
+
+        <label for="BsmtHalfBath">BsmtHalfBath:</label>
+        <input type="number" id="BsmtHalfBath" name="BsmtHalfBath"><br><br>
+
+        <label for="FullBath">FullBath:</label>
+        <input type="number" id="FullBath" name="FullBath" required><br><br>
+
+        <label for="HalfBath">HalfBath:</label>
+        <input type="number" id="HalfBath" name="HalfBath"><br><br>
+
+        <label for="BedroomAbvGr">BedroomAbvGr:</label>
+        <input type="number" id="BedroomAbvGr" name="BedroomAbvGr" required><br><br>
+
+        <label for="KitchenAbvGr">KitchenAbvGr:</label>
+        <input type="number" id="KitchenAbvGr" name="KitchenAbvGr"><br><br>
+
+        <label for="TotRmsAbvGrd">TotRmsAbvGrd:</label>
+        <input type="number" id="TotRmsAbvGrd" name="TotRmsAbvGrd" required><br><br>
+
+        <label for="Fireplaces">Fireplaces:</label>
+        <input type="number" id="Fireplaces" name="Fireplaces"><br><br>
+
+        <label for="GarageYrBlt">GarageYrBlt:</label>
+        <input type="number" id="GarageYrBlt" name="GarageYrBlt" required><br><br>
+
+        <label for="GarageCars">GarageCars:</label>
+        <input type="number" id="GarageCars" name="GarageCars" required><br><br>
+
+        <label for="GarageArea">GarageArea:</label>
+        <input type="number" id="GarageArea" name="GarageArea" required><br><br>
+
+        <label for="WoodDeckSF">WoodDeckSF:</label>
+        <input type="number" id="WoodDeckSF" name="WoodDeckSF"><br><br>
+
+        <label for="OpenPorchSF">OpenPorchSF:</label>
+        <input type="number" id="OpenPorchSF" name="OpenPorchSF"><br><br>
+
+        <label for="EnclosedPorch">EnclosedPorch:</label>
+        <input type="number" id="EnclosedPorch" name="EnclosedPorch"><br><br>
+
+        <label for="3SsnPorch">3SsnPorch:</label>
+        <input type="number" id="3SsnPorch" name="3SsnPorch"><br><br>
+
+        <label for="ScreenPorch">ScreenPorch:</label>
+        <input type="number" id="ScreenPorch" name="ScreenPorch"><br><br>
+
+        <label for="PoolArea">PoolArea:</label>
+        <input type="number" id="PoolArea" name="PoolArea"><br><br>
+
+        <label for="MiscVal">MiscVal:</label>
+        <input type="number" id="MiscVal" name="MiscVal"><br><br>
+
+        <label for="MoSold">MoSold:</label>
+        <input type="number" id="MoSold" name="MoSold" required><br><br>
+
+        <label for="YrSold">YrSold:</label>
+        <input type="number" id="YrSold" name="YrSold" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <h2>{{prediction_text}}</h2>
+</body>
+</html>
