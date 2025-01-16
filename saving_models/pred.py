@@ -7,6 +7,7 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 model = pickle.load(open('model.pkl', 'rb'))
 encoder = pickle.load(open('encoder.pkl', 'rb'))
 scaler = pickle.load(open('scaler.pkl', 'rb'))
+pca= pickle.load(open('pca_model.pkl', 'rb'))
 
 # Function to process new input data
 def process_input_data(input_data):
@@ -41,7 +42,10 @@ def process_input_data(input_data):
         axis=1
     )
 
-    return processed_features
+    # Apply PCA transformation
+    processed_features_pca = pca.transform(processed_features)
+
+    return pd.DataFrame(processed_features_pca)
 
 # Function to make predictions
 def predict(input_data):

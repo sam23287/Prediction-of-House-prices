@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, jsonify
 import pandas as pd
 import pickle
+from sklearn.decomposition import PCA
 
 # Load the saved model, encoder, and scaler
 model = pickle.load(open('model.pkl', 'rb'))
 encoder = pickle.load(open('encoder.pkl', 'rb'))
 scaler = pickle.load(open('scaler.pkl', 'rb'))
+pca= pickle.load(open('pca_model.pkl', 'rb'))
 
 # Initialize Flask app
 app = Flask(__name__,template_folder=r'D:/ML project (House price prediction)/deployment/templates')
@@ -134,8 +136,10 @@ def predict():
         axis=1
     )
 
+    processed_features_pca=pca.transform(processed_features)
+
     # Make prediction
-    prediction = model.predict(processed_features)[0]
+    prediction = model.predict(processed_features_pca)[0]
 
     # Return the result
     return render_template('home.html', prediction_text=f'The predicted sales price is: {prediction}')

@@ -4,6 +4,9 @@ from sklearn.preprocessing import OneHotEncoder,StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingRegressor
 import pickle
+from sklearn.decomposition import PCA
+
+pca = PCA(n_components=60)  # Test with 30 components
 
 df=pd.read_csv('D:\ML project (House price prediction)\cleaned_train_data.csv')
 print(df.head())
@@ -50,6 +53,8 @@ X_train_transformed=pd.concat(
      axis=1
 )
 
+X_train_reduced = pca.fit_transform(X_train_transformed)
+
 #Transforming X_test now
 categorical_features1=X_test[['MSZoning', 'Street', 'Alley', 'LotShape', 'LandContour', 'Utilities',
        'LotConfig', 'LandSlope', 'Neighborhood', 'Condition1', 'Condition2',
@@ -81,13 +86,15 @@ X_test_transformed=pd.concat(
     [pd.DataFrame(encoded_categorical1),pd.DataFrame(scaled_numerical1)],axis=1
 )
 
+X_test_reduced = pca.transform(X_test_transformed)
+
 #Training the model
 model=GradientBoostingRegressor(n_estimators=150,learning_rate= 0.1, max_depth= 5, min_samples_leaf= 2, min_samples_split= 5, subsample= 0.9)
-model.fit(X_train_transformed,y_train)
+model.fit(X_train_reduced,y_train)
 
 #Making Predictions
-testing_accuracy= model.score(X_test_transformed,y_test)
-training_accuracy= model.score(X_train_transformed,y_train)
+testing_accuracy= model.score(X_test_reduced,y_test)
+training_accuracy= model.score(X_train_reduced,y_train)
 print(f'The accuracy is {testing_accuracy}')
 print(training_accuracy)
 
@@ -95,3 +102,4 @@ print(training_accuracy)
 pickle.dump(encoder,open('encoder.pkl','wb'))
 pickle.dump(scaler,open('scaler.pkl','wb'))
 pickle.dump(model,open('model.pkl','wb'))
+pickle.dump(pca,open('pca_model.pkl','wb'))
